@@ -1,0 +1,9 @@
+.customer-acquisition_text_button {
+    width: 340px;
+    height: 64px;
+    border: 0;
+    background-color: rgba(120, 229, 131, 1);
+    font-size: 24px;
+    font-family: "Inter", sans-serif;
+    cursor: pointer;
+  }

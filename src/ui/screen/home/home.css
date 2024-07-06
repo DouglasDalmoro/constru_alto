@@ -1,0 +1,70 @@
+.customer-acquisition {
+  display: flex;
+  height: 600px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.customer-acquisition_img {
+  width: 550px;
+  max-height: 90%;
+  mix-blend-mode: multiply;
+  margin-right: 40px;
+}
+
+.customer-acquisition_text {
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  height: 400px;
+  gap: 15px;
+  justify-content: center;
+}
+
+.customer-acquisition_text_title {
+  font-size: 2.5rem;
+  font-family: "Montserrat", sans-serif;
+  color: rgba(80, 98, 105, 1);
+}
+
+.customer-acquisition_text_description {
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  color: rgba(132, 132, 132, 1);
+}
+
+.customer-acquisition_text_button:hover {
+  background-color: rgb(106, 207, 116);
+}
+
+@media (max-width: 950px) {
+  .customer-acquisition_img {
+    width: 50%;
+    justify-content: center;
+    margin: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .customer-acquisition {
+    flex-direction: column-reverse;
+    height: 800px;
+    justify-content: space-around;
+  }
+
+  .customer-acquisition_text {
+    width: 90%;
+  }
+
+  .customer-acquisition_img {
+    width: 90%;
+  }
+
+  .customer-acquisition_text_button {
+    max-width: 100%;
+  }
+}
+
+
+
