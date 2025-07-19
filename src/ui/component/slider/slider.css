@@ -5,6 +5,7 @@
   overflow: hidden;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .box-img {
@@ -12,7 +13,7 @@
   height: 100%;
   position: absolute;
   opacity: 0;
-  transition: opacity ease-in-out 0.4s;
+  transition: opacity 0.4s ease-in-out;
 }
 
 .img {
@@ -23,4 +24,63 @@
 
 .active-anim {
   opacity: 1;
+}
+
+.text-overlay {
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  top: 20%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 2;
+}
+
+.container-slider:hover .text-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+.container-slider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.click-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 3; 
+  background: transparent;
+}
+
+.btn-slider {
+  position: absolute;
+  z-index: 5;
+}
+
+.container-slider:hover::after {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .container-slider:focus-within .text-overlay,
+  .container-slider:hover .text-overlay {
+    opacity: 1;
+    visibility: visible;
+  }
 }

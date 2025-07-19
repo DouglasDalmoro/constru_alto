@@ -16,7 +16,7 @@ export function CardList({ list }) {
               localization={propertie.localization}
               price={propertie.price}
               isActive={propertie.isActive}
-              img={process.env.PUBLIC_URL + `slider/img1.jpg`}
+              img={propertie.img}
             />
           ))}
         </div>

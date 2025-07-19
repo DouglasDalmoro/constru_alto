@@ -1,6 +1,7 @@
 import { Button, Container, Footer, Header } from "../../component";
-import { BsTelephone, BsFacebook } from "react-icons/bs";
+import { BsFacebook } from "react-icons/bs";
 import { CiLocationOn } from "react-icons/ci";
+import { FaWhatsapp } from "react-icons/fa";
 import { LiaBusinessTimeSolid } from "react-icons/lia";
 import { TextField } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
@@ -9,6 +10,7 @@ import "./contact-us.css";
 import emailjs from "emailjs-com";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { TEMPLATE_ID, SERVICE_ID, USER_ID } from "../../../config"
 
 export function ContactScreen() {
   const [descricaoContato, setDescricaoContato] = useState("");
@@ -20,29 +22,50 @@ export function ContactScreen() {
       "_blank"
     );
   }
+  function navigateToWhats() {
+    window.open(
+      "https://api.whatsapp.com/send?phone=5551996745902&text=Ol%C3%A1,%20fiquei%20interessado%20em%20um%20de%20seus%20terrenos%20pelo%20site.%0AGostaria%20de%20receber%20mais%20informa%C3%A7%C3%B5es.%20",
+      "_blank"
+    );
+  }
+
+  function navigateToGoogleMaps() {
+    window.open(
+      "https://maps.app.goo.gl/Cb1rE7EjqA8LhHFG8",
+      "_blank"
+    );
+  }
+  function navigateToLocalization() {
+    window.open(
+      "https://www.facebook.com/construaltoimobiliaria/?locale=pt_BR",
+      "_blank"
+    );
+  }
 
   useEffect(() => {
     setDescricaoContato(description || "");
   }, [description]);
 
   async function sendEmail(e) {
+    e.preventDefault();
+    console.log("TEMPLATE_ID:", TEMPLATE_ID);
+  console.log("SERVICE_ID:", SERVICE_ID);
+  console.log("USER_ID:", USER_ID);
+  
     try {
-      e.preventDefault();
-      await emailjs.sendForm(
-        "service_syu4zfc",
-        "template_ulb8ofb",
-        e.target,
-        "Lpytyqsmvd8BWTEaf"
-      );
+      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, USER_ID);
       toast.success("Email enviado com sucesso!", {
         position: toast.POSITION.TOP_RIGHT,
       });
     } catch (error) {
+      console.error("Erro ao enviar e-mail:", error);
       toast.error("Ocorreu um erro ao enviar seu email", {
         position: toast.POSITION.TOP_RIGHT,
       });
     }
+  
     e.target.reset();
+    setDescricaoContato("");
   }
 
   return (
@@ -52,25 +75,31 @@ export function ContactScreen() {
         <div className="infos">
           <Container className="space">
             <div className="infos_content">
-              <div className="infos_content_icon">
+              <div
+                className="infos_content_icon cursor-pointer"
+                onClick={navigateToWhats}
+              >
                 <div className="icon">
-                  <BsTelephone />
+                  <FaWhatsapp />
                 </div>
                 <div className="infos_content_text">
                   <div className="box-text">
-                    <span className="title">LIGUE PARA NÓS</span>
+                    <span className="title">Envie sua Mensagem</span>
                     <span className="description">(51) 99674-5902</span>
                   </div>
                 </div>
               </div>
-              <div className="infos_content_icon">
+              <div
+                className="infos_content_icon  cursor-pointer"
+                onClick={navigateToLocalization}
+              >
                 <div className="icon">
                   <CiLocationOn />
                 </div>
-                <div className="box-text">
+                <div className="box-text" onClick={navigateToGoogleMaps}>
                   <span className="title">LOCALIZAÇÃO</span>
                   <span className="description">
-                    Av AJ Renner, 209, sala 05, Alto Feliz, RS, Brasil
+                    Rua Gustavo Weissheimer, 30, Alto Feliz - RS
                   </span>
                 </div>
               </div>

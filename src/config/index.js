@@ -1,4 +1,3 @@
-export const EMAIL_FROM = process.env.REACT_APP_EMAIL_FROM
-export const NAME_FROM= process.env.REACT_APP_NAME_FROM
-export const SUBJECT= process.env.REACT_APP_SUBJECT
-export const TEMPLATEID= process.env.REACT_APP_TEMPLATEID
+export const TEMPLATE_ID= process.env.REACT_APP_TEMPLATEID
+export const SERVICE_ID= process.env.REACT_APP_SERVICE
+export const USER_ID= process.env.REACT_APP_USER
