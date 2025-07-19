@@ -1,4 +1,4 @@
-export { FloatingWhatsAppButton } from "./button-whats/FloatingWhatsAppButton.component";
+export { FloatingButtonWhatsApp } from "./button-whats/floating-button-whatsapp.component";
 export { CardList } from "./card-list/card-list.component";
 export { Card } from "./card/card.component";
 export { BtnSlider } from "./button-slider/button-slider.component";

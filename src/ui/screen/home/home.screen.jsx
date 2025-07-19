@@ -2,7 +2,7 @@ import {
   Button,
   CardList,
   Container,
-  FloatingWhatsAppButton,
+  FloatingButtonWhatsApp,
   Footer,
   Header,
   Slider,
@@ -44,7 +44,7 @@ export function HomePageScreen() {
       </Container>
       <Slider sliderList={sliderData} />
       <CardList list={PropertiesForSale} />
-      <FloatingWhatsAppButton />
+      <FloatingButtonWhatsApp />
       <Footer />
     </>
   );
